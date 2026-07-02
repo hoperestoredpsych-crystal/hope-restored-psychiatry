@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Hope Restored Psychiatry — Dr. Crystal Bullard</title>
+  <meta name="description" content="Expert insights on child, adolescent, and adult mental health from Dr. Crystal Bullard, board-certified psychiatrist in Charlotte, NC." />
+  <link rel="canonical" href="https://www.hoperestoredpsychiatry.com/blog" />
+  <meta property="og:title" content="Blog | Hope Restored Psychiatry" />
+  <meta property="og:description" content="Expert insights on child, adolescent, and adult mental health from Dr. Crystal Bullard." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* ── Blog-specific styles ── */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 2rem;
+      margin-top: 0;
+    }
+
+    .blog-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+    }
+    .blog-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .blog-card-body {
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .blog-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+      flex-wrap: wrap;
+    }
+    .blog-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sage-dark);
+      background: var(--sage-light);
+      padding: 0.25rem 0.7rem;
+      border-radius: 100px;
+    }
+    .blog-date {
+      font-size: 0.82rem;
+      color: var(--brown-light);
+    }
+
+    .blog-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.65rem;
+      color: var(--brown);
+    }
+    .blog-card p {
+      font-size: 0.95rem;
+      color: var(--brown-light);
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .blog-read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1.25rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--sage-dark);
+      transition: var(--transition);
+    }
+    .blog-read-more:hover { gap: 0.65rem; color: var(--brown); }
+    .blog-read-more::after { content: '→'; }
+
+    /* Full post overlay */
+    .post-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(44,36,23,0.55);
+      overflow-y: auto;
+      padding: 2rem 1rem;
+    }
+    .post-overlay.open { display: block; }
+
+    .post-modal {
+      background: var(--cream);
+      border-radius: var(--radius);
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 3rem 3.5rem;
+      position: relative;
+    }
+    .post-modal-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.5rem;
+      background: var(--cream-dark);
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      color: var(--brown);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    .post-modal-close:hover { background: var(--cream-mid); }
+
+    .post-modal .post-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sage-dark);
+      background: var(--sage-light);
+      padding: 0.25rem 0.7rem;
+      border-radius: 100px;
+      display: inline-block;
+      margin-bottom: 0.75rem;
+    }
+    .post-modal h2 {
+      margin-bottom: 0.5rem;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+    }
+    .post-modal .post-date {
+      font-size: 0.85rem;
+      color: var(--brown-light);
+      margin-bottom: 2rem;
+      display: block;
+    }
+    .post-modal .post-body p {
+      margin-bottom: 1.1rem;
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      color: var(--brown-light);
+    }
+    .post-modal .post-body h4 {
+      margin: 1.75rem 0 0.6rem;
+      color: var(--brown);
+    }
+    .post-modal .post-body ul {
+      list-style: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1.1rem;
+    }
+    .post-modal .post-body ul li {
+      font-size: 1.0625rem;
+      color: var(--brown-light);
+      line-height: 1.7;
+      margin-bottom: 0.4rem;
+    }
+    .post-disclaimer {
+      margin-top: 2rem;
+      padding: 1rem 1.25rem;
+      background: var(--cream-mid);
+      border-left: 3px solid var(--gold);
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      color: var(--brown-light);
+      font-style: italic;
+    }
+
+    @media (max-width: 600px) {
+      .post-modal { padding: 2rem 1.5rem; }
+      .blog-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Hope Restored Psychiatry home">
+        Hope Restored Psychiatry
+        <span>Dr. Crystal Bullard, MD</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html#schedule" class="nav-cta">Book Appointment</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="page-hero" aria-labelledby="blog-heading">
+    <div class="container">
+      <span class="section-tag">Expert Insights</span>
+      <h1 id="blog-heading">Mental Health Blog</h1>
+      <p>Dr. Bullard shares guidance on child, adolescent, and adult mental health to help families thrive.</p>
+    </div>
+  </section>
+
+  <!-- ===== BLOG POSTS ===== -->
+  <section class="section-pad" aria-labelledby="posts-heading">
+    <div class="container">
+      <h2 id="posts-heading" class="sr-only">Blog Posts</h2>
+      <div class="blog-grid">
+
+        <!-- Post 1 -->
+        <article class="blog-card">
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-tag">Anxiety</span>
+              <span class="blog-date">June 10, 2025</span>
+            </div>
+            <h3>Recognizing Anxiety in Children: What Parents Should Know</h3>
+            <p>Anxiety is one of the most common mental health challenges in children, yet it often goes unrecognized. Learn the signs, and when it's time to seek professional support.</p>
+            <button class="blog-read-more" onclick="openPost('post1')" aria-label="Read full post: Recognizing Anxiety in Children">Read more</button>
+          </div>
+        </article>
+
+        <!-- Post 2 -->
+        <article class="blog-card">
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-tag">ADHD</span>
+              <span class="blog-date">April 22, 2025</span>
+            </div>
+            <h3>ADHD Beyond the Classroom: How It Affects Home and Social Life</h3>
+            <p>ADHD is about much more than school performance. Understand how it shapes relationships, daily routines, and emotional well-being — and how treatment can help.</p>
+            <button class="blog-read-more" onclick="openPost('post2')" aria-label="Read full post: ADHD Beyond the Classroom">Read more</button>
+          </div>
+        </article>
+
+        <!-- Post 3 -->
+        <article class="blog-card">
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-tag">Teen Mental Health</span>
+              <span class="blog-date">February 5, 2025</span>
+            </div>
+            <h3>Social Media and Teen Mental Health: Navigating the Digital World</h3>
+            <p>The research is nuanced, but the impact is real. Here's what the evidence says about social media and adolescent well-being, and how families can set healthy boundaries.</p>
+            <button class="blog-read-more" onclick="openPost('post3')" aria-label="Read full post: Social Media and Teen Mental Health">Read more</button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA BAND ===== -->
+  <section class="cta-band" aria-labelledby="cta-heading">
+    <div class="container cta-band-inner">
+      <div>
+        <h2 id="cta-heading">Ready to take the next step?</h2>
+        <p>Dr. Bullard is accepting new patients — children, teenagers, and young adults.</p>
+      </div>
+      <div class="cta-band-actions">
+        <a href="https://valant.io/prospectivepatient/HopeRestoredPsychiatryPLLC/embedded" target="_blank" rel="noopener" class="btn btn-white">New Patient</a>
+        <a href="https://valant.io/myio/HopeRestoredPsychiatryPLLC/login" target="_blank" rel="noopener" class="btn btn-outline-white">Existing Patient Portal</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            Hope Restored Psychiatry
+            <span>Dr. Crystal Bullard, MD</span>
+          </div>
+          <p>Board-certified child, adolescent, and adult psychiatry in Charlotte, NC. Compassionate care that goes beyond the surface.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul role="list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Dr. Bullard</a></li>
+            <li><a href="services.html">Services &amp; Rates</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact &amp; Location</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>6845 Fairview Road, Suite 21<br>Charlotte, NC 28210</p>
+          <a href="tel:9802494141">980-249-4141</a>
+          <p style="margin-top:0.25rem">Fax: 980-249-4142</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Hope Restored Psychiatry. All rights reserved.</p>
+        <p>This site is for informational purposes only and does not constitute medical advice.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== POST MODALS ===== -->
+
+  <!-- Post 1: Anxiety -->
+  <div class="post-overlay" id="post1" role="dialog" aria-modal="true" aria-labelledby="post1-title">
+    <div class="post-modal">
+      <button class="post-modal-close" onclick="closePost('post1')" aria-label="Close post">✕</button>
+      <span class="post-tag">Anxiety</span>
+      <h2 id="post1-title">Recognizing Anxiety in Children: What Parents Should Know</h2>
+      <span class="post-date">June 10, 2025 · Dr. Crystal Bullard, MD</span>
+      <div class="post-body">
+        <p>Anxiety is the most common mental health condition in children and adolescents, affecting roughly 1 in 8 kids. Yet because anxious children often appear "well-behaved" or simply "shy," their struggles can go unnoticed for years. Early recognition makes a significant difference in outcomes.</p>
+
+        <h4>What anxiety can look like in children</h4>
+        <p>Anxiety rarely presents the way adults expect it to. Rather than expressing worry verbally, children often show anxiety through physical and behavioral changes:</p>
+        <ul>
+          <li>Frequent stomachaches or headaches with no clear medical cause</li>
+          <li>Refusal to attend school or social events they previously enjoyed</li>
+          <li>Clinginess, separation difficulties, or excessive reassurance-seeking</li>
+          <li>Irritability, meltdowns, or oppositional behavior (especially after a stressful event)</li>
+          <li>Difficulty sleeping, nightmares, or needing a parent present to fall asleep</li>
+          <li>Perfectionism or extreme fear of making mistakes</li>
+        </ul>
+
+        <h4>Normal worry vs. anxiety disorder</h4>
+        <p>All children experience worry — it's a healthy and adaptive part of development. The concern arises when worry becomes persistent, out of proportion to the situation, and begins to interfere with daily life. If your child's fears are limiting their participation in school, friendships, or family activities, that's a signal worth exploring with a professional.</p>
+
+        <h4>How parents can help</h4>
+        <p>One of the most important things you can do is validate your child's feelings without reinforcing avoidance. Saying "I know this feels scary, and I believe you can do it" is more helpful than "there's nothing to worry about." Encouraging gradual, supported exposure to feared situations — with warmth and patience — builds resilience over time.</p>
+
+        <h4>When to seek evaluation</h4>
+        <p>If anxiety symptoms have persisted for several weeks, are intensifying, or are significantly affecting your child's functioning, a psychiatric evaluation can provide clarity and a path forward. Effective treatments exist, and most children respond well with the right support.</p>
+
+        <div class="post-disclaimer">This article is for general informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. If you have concerns about your child's mental health, please consult a qualified healthcare provider.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Post 2: ADHD -->
+  <div class="post-overlay" id="post2" role="dialog" aria-modal="true" aria-labelledby="post2-title">
+    <div class="post-modal">
+      <button class="post-modal-close" onclick="closePost('post2')" aria-label="Close post">✕</button>
+      <span class="post-tag">ADHD</span>
+      <h2 id="post2-title">ADHD Beyond the Classroom: How It Affects Home and Social Life</h2>
+      <span class="post-date">April 22, 2025 · Dr. Crystal Bullard, MD</span>
+      <div class="post-body">
+        <p>When most people think about ADHD, they picture a child who can't sit still in class or struggles to finish homework. While those challenges are real, ADHD is a whole-life condition — and its effects on friendships, family dynamics, and emotional health are often just as significant.</p>
+
+        <h4>ADHD at home</h4>
+        <p>Daily routines can become significant sources of conflict for families. Mornings, mealtimes, transitions, and bedtime — all of which require sustained attention and impulse control — can feel exhausting for both children and parents. Common home challenges include:</p>
+        <ul>
+          <li>Forgetting chores, homework, or belongings despite reminders</li>
+          <li>Difficulty transitioning between activities ("just five more minutes" stretching into an hour)</li>
+          <li>Emotional dysregulation — big reactions to small frustrations</li>
+          <li>Sleep difficulties, which compound attention and mood issues the next day</li>
+        </ul>
+
+        <h4>ADHD and friendships</h4>
+        <p>Children with ADHD often have the biggest hearts and the most creative minds in the room. They can also struggle with reading social cues, waiting their turn in conversation, or modulating their energy to match a situation. These challenges can lead to peer rejection or social isolation — which in turn affects self-esteem. It's important that parents and clinicians address the social dimension of ADHD, not just the academic one.</p>
+
+        <h4>Emotional dysregulation: the overlooked symptom</h4>
+        <p>Many children with ADHD experience intense emotional reactions that feel sudden and overwhelming. This isn't defiance — it's a neurological feature of the condition. Frustration tolerance is often lower, and the time between feeling an emotion and acting on it can be very short. Skills-based interventions and, in some cases, medication can meaningfully improve emotional regulation.</p>
+
+        <h4>A whole-family approach</h4>
+        <p>Effective ADHD treatment rarely stops at medication. Parent coaching, behavioral strategies tailored to the home environment, and school accommodations all play a role. When families understand ADHD as a brain-based difference — not a character flaw — the entire dynamic shifts toward collaboration and compassion.</p>
+
+        <div class="post-disclaimer">This article is for general informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. If you have concerns about your child's mental health, please consult a qualified healthcare provider.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Post 3: Social Media -->
+  <div class="post-overlay" id="post3" role="dialog" aria-modal="true" aria-labelledby="post3-title">
+    <div class="post-modal">
+      <button class="post-modal-close" onclick="closePost('post3')" aria-label="Close post">✕</button>
+      <span class="post-tag">Teen Mental Health</span>
+      <h2 id="post3-title">Social Media and Teen Mental Health: Navigating the Digital World</h2>
+      <span class="post-date">February 5, 2025 · Dr. Crystal Bullard, MD</span>
+      <div class="post-body">
+        <p>Few topics generate more parental anxiety than social media and teenagers. Headlines warn of epidemic-level harm; researchers debate causation versus correlation; and meanwhile, teens are spending hours each day in digital spaces that didn't exist a generation ago. What does the evidence actually say — and what can families do?</p>
+
+        <h4>What the research shows</h4>
+        <p>The picture is more nuanced than most headlines suggest. Heavy social media use — particularly passive scrolling and social comparison — is associated with increased rates of anxiety and depression, especially in adolescent girls. However, the relationship is bidirectional: teens who are already struggling may be more likely to turn to social media for connection or escape, which can deepen the cycle.</p>
+        <p>Not all social media use is equal. Active, meaningful engagement (messaging close friends, participating in interest-based communities) tends to be less harmful than passive consumption of curated highlight reels.</p>
+
+        <h4>Signs that social media may be affecting your teen</h4>
+        <ul>
+          <li>Increased irritability, sadness, or anxiety following phone use</li>
+          <li>Sleep disruption from late-night scrolling</li>
+          <li>Withdrawal from in-person relationships or activities</li>
+          <li>Heightened preoccupation with appearance, likes, or follower counts</li>
+          <li>Distress when phones are taken away that goes beyond normal frustration</li>
+        </ul>
+
+        <h4>Practical guidance for families</h4>
+        <p>Outright bans rarely work and often damage trust. A more effective approach involves open conversation, consistent structure, and modeling healthy habits yourself:</p>
+        <ul>
+          <li><strong>Phones out of the bedroom at night</strong> — this single change has the most evidence behind it for improving teen sleep and mood.</li>
+          <li><strong>Device-free family time</strong> — meals, outings, and designated hours that prioritize in-person connection.</li>
+          <li><strong>Curiosity over surveillance</strong> — ask your teen what they're watching and who they follow. Interest builds dialogue.</li>
+          <li><strong>Delay smartphone access when possible</strong> — adolescent brains are still developing the judgment and self-regulation that social media demands.</li>
+        </ul>
+
+        <h4>When to involve a professional</h4>
+        <p>If your teen's social media use seems compulsive, is significantly affecting their mood or sleep, or if they've experienced cyberbullying or harmful content, a mental health evaluation can help you assess the situation and develop a plan tailored to your child.</p>
+
+        <div class="post-disclaimer">This article is for general informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. If you have concerns about your teen's mental health, please consult a qualified healthcare provider.</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    function openPost(id) {
+      const overlay = document.getElementById(id);
+      overlay.classList.add('open');
+      overlay.scrollTop = 0;
+      document.body.style.overflow = 'hidden';
+      // focus the close button for accessibility
+      overlay.querySelector('.post-modal-close').focus();
+    }
+
+    function closePost(id) {
+      document.getElementById(id).classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Close on backdrop click
+    document.querySelectorAll('.post-overlay').forEach(overlay => {
+      overlay.addEventListener('click', e => {
+        if (e.target === overlay) closePost(overlay.id);
+      });
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.post-overlay.open').forEach(o => closePost(o.id));
+      }
+    });
+  </script>
+</body>
+</html>
