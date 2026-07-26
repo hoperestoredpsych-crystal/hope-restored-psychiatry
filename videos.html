@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Library | Hope Restored Psychiatry</title>
+  <meta name="description" content="Watch media interviews and patient education videos with Dr. Crystal Bullard of Hope Restored Psychiatry, covering child, adolescent, and adult mental health." />
+  <link rel="canonical" href="https://www.hoperestoredpsychiatry.com/videos" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.75rem;
+    }
+    .video-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sage-dark);
+      background: var(--sage-light);
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+      margin-bottom: 0.5rem;
+    }
+    .video-thumb.is-playing { cursor: default; }
+    .video-thumb iframe {
+      width: 100%;
+      height: 200px;
+      display: block;
+      border: 0;
+    }
+  </style>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Hope Restored Psychiatry home">
+        <img src="assets/logo-mark.png" alt="" class="nav-logo-icon" width="38" height="38" />
+        <span class="nav-logo-text">
+          Hope Restored Psychiatry
+        </span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">Our Team</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="videos.html" class="active">Videos</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="patient-portal.html">Patient Portal</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html#schedule" class="nav-cta">Book Appointment</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="page-hero" aria-labelledby="videos-heading">
+    <div class="container">
+      <span class="section-tag">Expert Insights</span>
+      <h1 id="videos-heading">Video Library</h1>
+      <p>Media interviews and patient education videos with Dr. Bullard on child, adolescent, and adult mental health.</p>
+    </div>
+  </section>
+
+  <!-- ===== VIDEO GRID ===== -->
+  <section class="section-pad" aria-labelledby="videos-grid-heading">
+    <div class="container">
+      <h2 id="videos-grid-heading" class="sr-only">Videos</h2>
+
+      <p style="max-width:640px;margin:0 auto 2.5rem;text-align:center;font-size:0.9rem;color:var(--brown-light)">
+        Some videos below discuss suicide. If you or someone you know is struggling, the
+        <a href="resources.html" style="color:var(--sage-dark);font-weight:600">988 Suicide &amp; Crisis Lifeline</a>
+        is available 24/7 — call or text 988.
+      </p>
+
+      <div class="videos-grid" id="videos-grid"></div>
+    </div>
+  </section>
+
+  <!-- ===== CTA BAND ===== -->
+  <section class="cta-band" aria-labelledby="cta-heading">
+    <div class="container cta-band-inner">
+      <div>
+        <h2 id="cta-heading">Ready to take the next step?</h2>
+        <p>We are accepting new patients — children, teenagers, and adults.</p>
+      </div>
+      <div class="cta-band-actions">
+        <a href="https://valant.io/prospectivepatient/HopeRestoredPsychiatryPLLC/embedded" target="_blank" rel="noopener" class="btn btn-white">New Patient</a>
+        <a href="https://valant.io/myio/HopeRestoredPsychiatryPLLC/login" target="_blank" rel="noopener" class="btn btn-outline-white">Existing Patient Portal</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <img src="assets/logo-mark.png" alt="" class="nav-logo-icon" width="38" height="38" />
+            <span class="nav-logo-text">
+              Hope Restored Psychiatry
+            </span>
+          </div>
+          <p>Board-certified child, adolescent, and adult psychiatry in Charlotte, NC. Compassionate care that goes beyond the surface.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul role="list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Our Team</a></li>
+            <li><a href="services.html">Services &amp; Rates</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="videos.html">Videos</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="patient-portal.html">Patient Portal</a></li>
+            <li><a href="contact.html">Contact &amp; Location</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>6845 Fairview Road, Suite 21<br>Charlotte, NC 28210</p>
+          <a href="tel:9802494141">980-249-4141</a>
+          <p style="margin-top:0.25rem">Fax: 980-249-4142</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Hope Restored Psychiatry. All rights reserved.</p>
+        <p>This site is for informational purposes only and does not constitute medical advice.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // To add a video: append an entry here. id = the part of the YouTube URL
+    // after youtu.be/ (before any ?si= tracking parameter).
+    const videos = [
+      {
+        id: '-82LMUa-gb4',
+        tag: 'Patient Education',
+        title: 'Back-to-School Anxiety',
+        desc: 'Helping kids navigate the transition back to school.'
+      },
+      {
+        id: 'wL2t2eh9mPk',
+        tag: 'Patient Education',
+        title: 'Can Autism Be Cured?',
+        desc: 'What the evidence says, and how to support an autistic child.'
+      },
+      {
+        id: 'WonHhJspr3c',
+        tag: 'Media Interview',
+        title: 'WCNC Charlotte Interview',
+        desc: 'Dr. Bullard speaks with WCNC Charlotte.'
+      },
+      {
+        id: '1uW6gneW0o4',
+        tag: 'Media Interview',
+        title: 'Spectrum News: Coping After a Public Suicide Loss',
+        desc: "Dr. Bullard discusses suicide awareness following Cheslie Kryst's death."
+      },
+      {
+        id: 'AkVgRG_8VSc',
+        tag: 'Media Interview',
+        title: 'WCCB Charlotte: Coping After a Public Suicide Loss',
+        desc: "Dr. Bullard discusses suicide awareness following Cheslie Kryst's death."
+      },
+      {
+        id: 'gnqTWCe2-Xs',
+        tag: 'Media Interview',
+        title: 'WSOC-TV: Coping After a Public Suicide Loss',
+        desc: "Dr. Bullard discusses suicide awareness following Cheslie Kryst's death."
+      }
+    ];
+
+    const grid = document.getElementById('videos-grid');
+
+    videos.forEach((video, i) => {
+      const card = document.createElement('article');
+      card.className = 'video-card';
+
+      const thumb = document.createElement('div');
+      thumb.className = 'video-thumb';
+      thumb.setAttribute('role', 'button');
+      thumb.setAttribute('tabindex', '0');
+      thumb.setAttribute('aria-label', 'Play video: ' + video.title);
+
+      const img = document.createElement('img');
+      img.src = 'https://i.ytimg.com/vi/' + video.id + '/hqdefault.jpg';
+      img.alt = video.title + ' video thumbnail';
+      img.loading = 'lazy';
+
+      const play = document.createElement('div');
+      play.className = 'video-play';
+      play.setAttribute('aria-hidden', 'true');
+      play.innerHTML = '<div class="video-play-icon"></div>';
+
+      thumb.appendChild(img);
+      thumb.appendChild(play);
+
+      const info = document.createElement('div');
+      info.className = 'video-info';
+      info.innerHTML =
+        '<span class="video-tag">' + video.tag + '</span>' +
+        '<h4>' + video.title + '</h4>' +
+        '<p>' + video.desc + '</p>';
+
+      function play_() {
+        if (thumb.classList.contains('is-playing')) return;
+        thumb.classList.add('is-playing');
+        thumb.innerHTML = '';
+        const iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube.com/embed/' + video.id + '?autoplay=1&rel=0';
+        iframe.title = video.title;
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.allowFullscreen = true;
+        thumb.appendChild(iframe);
+      }
+
+      thumb.addEventListener('click', play_);
+      thumb.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play_(); }
+      });
+
+      card.appendChild(thumb);
+      card.appendChild(info);
+      grid.appendChild(card);
+    });
+  </script>
+</body>
+</html>
