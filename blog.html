@@ -180,6 +180,68 @@
       font-style: italic;
     }
 
+    /* Post images, tables and extras (added Nov 2026) */
+    .blog-card-img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      background: var(--cream-mid);
+    }
+    .post-hero-img {
+      display: block;
+      width: 100%;
+      max-width: 340px;
+      margin: 0 auto 2rem;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-sm);
+    }
+    .post-modal .post-subtitle {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--brown);
+      margin-bottom: 1.25rem;
+    }
+    .post-modal .post-body h5 {
+      margin: 1.5rem 0 0.6rem;
+      font-size: 1.05rem;
+      color: var(--sage-dark);
+    }
+    .post-modal .post-body a {
+      color: var(--sage-dark);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+    .post-modal .post-body a:hover { color: var(--brown); }
+    .post-modal .post-note {
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+    .post-table-wrap { overflow-x: auto; margin-bottom: 1.25rem; }
+    .post-modal .post-body table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      color: var(--brown-light);
+      background: var(--white);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+    .post-modal .post-body th,
+    .post-modal .post-body td {
+      text-align: left;
+      padding: 0.7rem 0.9rem;
+      border-bottom: 1px solid var(--cream-mid);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+    .post-modal .post-body th {
+      background: var(--sage-light);
+      color: var(--brown);
+      font-weight: 700;
+    }
+
     @media (max-width: 600px) {
       .post-modal { padding: 2rem 1.5rem; }
       .blog-grid { grid-template-columns: 1fr; }
@@ -267,6 +329,48 @@
     <div class="container">
       <h2 id="posts-heading" class="sr-only">Blog Posts</h2>
       <div class="blog-grid">
+
+        <!-- Antidepressants and the Developing Brain -->
+        <article class="blog-card">
+          <img class="blog-card-img" src="assets/antidepressants-developing-brain.jpg" alt="Illustration of a protective hand over a glowing brain surrounded by children reading and playing" loading="lazy" />
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-tag">Medication</span>
+              <span class="blog-date">November 12, 2026</span>
+            </div>
+            <h3>Antidepressants and the Developing Brain</h3>
+            <p>Many parents wonder whether antidepressants could affect their child's developing brain. Here's what current research shows about safety, long-term outcomes, and treating childhood anxiety.</p>
+            <button class="blog-read-more" onclick="openPost('post4')" aria-label="Read full post: Antidepressants and the Developing Brain">Read more</button>
+          </div>
+        </article>
+
+        <!-- Cannabis Use, Bipolar Disorder, and Your Mental Health -->
+        <article class="blog-card">
+          <img class="blog-card-img" src="assets/cannabis-bipolar-psychosis-risk.jpg" alt="Illustration of a balance scale weighing a healthy brain against a brain surrounded by cannabis leaves" loading="lazy" />
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-tag">Bipolar Disorder</span>
+              <span class="blog-date">November 12, 2026</span>
+            </div>
+            <h3>Cannabis Use, Bipolar Disorder, and Your Mental Health</h3>
+            <p>Marijuana can affect mood, sleep, and perception, and for people with bipolar disorder the risks are greater. Learn what research says about cannabis, mood stability, and psychosis.</p>
+            <button class="blog-read-more" onclick="openPost('post5')" aria-label="Read full post: Cannabis Use, Bipolar Disorder, and Your Mental Health">Read more</button>
+          </div>
+        </article>
+
+        <!-- Helping Your Child Adjust to Separation and Divorce -->
+        <article class="blog-card">
+          <img class="blog-card-img" src="assets/helping-child-through-divorce.jpg" alt="Illustration of two parents smiling with their child on a couch beneath a split house" loading="lazy" />
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-tag">Parenting</span>
+              <span class="blog-date">November 12, 2026</span>
+            </div>
+            <h3>Helping Your Child Adjust to Separation and Divorce</h3>
+            <p>Separation and divorce bring big changes for children. Practical, research-informed steps parents can take to help their child feel safe, loved, and supported through the transition.</p>
+            <button class="blog-read-more" onclick="openPost('post6')" aria-label="Read full post: Helping Your Child Adjust to Separation and Divorce">Read more</button>
+          </div>
+        </article>
 
         <!-- Post 1 -->
         <article class="blog-card">
@@ -366,6 +470,421 @@
   </footer>
 
   <!-- ===== POST MODALS ===== -->
+
+  <!-- post4: Antidepressants and the Developing Brain -->
+  <div class="post-overlay" id="post4" role="dialog" aria-modal="true" aria-labelledby="post4-title">
+    <div class="post-modal">
+      <button class="post-modal-close" onclick="closePost('post4')" aria-label="Close post">✕</button>
+      <span class="post-tag">Medication</span>
+      <h2 id="post4-title">Antidepressants and the Developing Brain</h2>
+      <span class="post-date">November 12, 2026 · Dr. Crystal Bullard, MD</span>
+      <img class="post-hero-img" src="assets/antidepressants-developing-brain.jpg" alt="Illustration of a protective hand over a glowing brain surrounded by children reading and playing" loading="lazy" />
+      <div class="post-body">
+        <p class="post-subtitle">What Parents Should Know About Treating Childhood and Adolescent Anxiety</p>
+        <p>It is completely understandable for parents to have questions or concerns about starting their child on an antidepressant. One of the most common concerns is whether medications that affect serotonin could interfere with normal brain development or cause long-term health problems.</p>
+        <p>These are important questions, and researchers have spent considerable time studying the safety and effectiveness of antidepressants in children and adolescents.</p>
+        <p>The encouraging news is that <strong>current human research has not demonstrated that appropriately prescribed antidepressants cause permanent brain damage, impaired cognitive development, or progressive damage to major organ systems.</strong> Although research is ongoing, the available evidence is generally reassuring.</p>
+        <p>Our goal is to help children feel better while supporting their healthy emotional, social, cognitive, and physical development.</p>
+        <h4>1. Do antidepressants affect the developing brain?</h4>
+        <p>Serotonin is a naturally occurring chemical messenger in the brain that plays an important role in:</p>
+        <ul>
+          <li>Emotional regulation and mood.</li>
+          <li>Anxiety and stress responses.</li>
+          <li>Sleep and circadian rhythms.</li>
+          <li>Learning and memory.</li>
+          <li>Brain development and communication between neurons.</li>
+        </ul>
+        <p>Because serotonin is involved in brain development, researchers have investigated whether medications that influence serotonin levels could have lasting effects on a developing brain.</p>
+        <p>Although animal studies have raised some developmental questions, human research has not established that therapeutic SSRI use during childhood causes permanent changes that impair normal brain development.</p>
+        <h5>Research Study: Antidepressants and the Adolescent Brain (2015)</h5>
+        <p><strong>What researchers investigated:</strong> Whether antidepressants, particularly SSRIs, could negatively affect the developing adolescent brain.</p>
+        <p><strong>What they found:</strong> The review found little evidence that antidepressant treatment places the human adolescent brain at developmental risk. The authors emphasized that additional long-term research is needed.</p>
+        <p><strong>What this means for parents:</strong> Although researchers continue to study this area, there is currently no convincing human evidence that appropriately prescribed SSRIs permanently damage a child’s developing brain.</p>
+        <p><a href="https://pubmed.ncbi.nlm.nih.gov/25744620/" target="_blank" rel="noopener">Read the research article</a></p>
+        <h4>2. What happens when children take antidepressants for several years?</h4>
+        <p>One of the most relevant studies examining this question is the SPRITES study, which followed children and adolescents taking sertraline (Zoloft).</p>
+        <h5>Research Study: SPRITES – Long-Term Sertraline Safety in Children and Adolescents (2023)</h5>
+        <p><strong>What researchers investigated:</strong></p>
+        <ul>
+          <li>941 children and adolescents, ages 6–16.</li>
+          <li>Followed for up to three years.</li>
+          <li>Compared children receiving sertraline with children receiving psychotherapy alone.</li>
+          <li>Examined physical growth, puberty, cognitive functioning, and executive functioning.</li>
+        </ul>
+        <p><strong>What they found:</strong></p>
+        <ul>
+          <li>No significant association between sertraline exposure and changes in standardized height.</li>
+          <li>No significant differences in executive functioning.</li>
+          <li>No significant differences in cognitive functioning.</li>
+          <li>No significant differences in pubertal development.</li>
+          <li>A small association between greater sertraline exposure and increased standardized weight.</li>
+        </ul>
+        <p><strong>What this means for parents:</strong> This study provides reassuring evidence that children taking sertraline did not demonstrate significant differences in several important measures of physical and cognitive development over the study period.</p>
+        <p>It is important to recognize that this was an observational study, not a randomized clinical trial, and not every participant completed the entire three-year follow-up.</p>
+        <p><a href="https://pubmed.ncbi.nlm.nih.gov/36799958/" target="_blank" rel="noopener">Read the SPRITES research study</a></p>
+        <h4>3. Can antidepressants cause damage to other organs?</h4>
+        <p>Current research has not established that appropriately prescribed SSRIs cause progressive damage to the liver, kidneys, heart, or other major organ systems.</p>
+        <p>Like all medications, antidepressants can have side effects. These vary depending on the medication, dose, and individual patient.</p>
+        <p>Potential considerations include:</p>
+        <div class="post-table-wrap"><table>
+          <tr><th>Area of health</th><th>What parents should know</th></tr>
+          <tr><td>Growth and development</td><td>Growth and weight should be monitored during treatment.</td></tr>
+          <tr><td>Weight and metabolism</td><td>Some antidepressants can contribute to weight changes.</td></tr>
+          <tr><td>Bone health</td><td>Some observational studies suggest possible associations with bone mineral density. The long-term clinical significance remains uncertain.</td></tr>
+          <tr><td>Heart health</td><td>Certain medications can affect cardiac electrical activity in susceptible individuals.</td></tr>
+          <tr><td>Liver health</td><td>Significant liver injury is rare.</td></tr>
+          <tr><td>Sleep</td><td>Changes in sleep patterns can occur, particularly when starting treatment or adjusting doses.</td></tr>
+          <tr><td>Sexual functioning</td><td>Sexual side effects are possible, although long-term pediatric research is limited.</td></tr>
+        </table></div>
+        <p>Your child’s psychiatrist will consider individual risk factors and monitor for potential side effects throughout treatment.</p>
+        <h4>4. Can antidepressants cause long-term mental health problems?</h4>
+        <p>There are several potential side effects that parents should understand.</p>
+        <p><strong>Increased suicidal thoughts:</strong> Antidepressants carry an FDA boxed warning regarding increased suicidal thoughts and behaviors in some children and adolescents, particularly early in treatment or following dose changes. This is why close monitoring is important.</p>
+        <p><strong>Behavioral activation:</strong> Some children experience increased irritability, restlessness, impulsivity, or difficulty sleeping. These symptoms are often associated with starting treatment or increasing the dose.</p>
+        <p><strong>Mania:</strong> Antidepressants can trigger manic symptoms in individuals who are vulnerable to bipolar disorder. Screening for personal and family histories of bipolar disorder is important.</p>
+        <p><strong>Emotional blunting:</strong> Some patients describe feeling emotionally numb or less able to experience the full range of emotions. This should be discussed with the prescribing clinician.</p>
+        <p>These potential effects do not mean that antidepressants cause permanent mental health damage. They do mean that treatment should be individualized and monitored.</p>
+        <h4>5. What are the long-term consequences of untreated anxiety?</h4>
+        <p>An important consideration when making medication decisions is that severe, untreated anxiety can also affect a child’s developing brain and overall well-being.</p>
+        <p>Chronic anxiety can interfere with:</p>
+        <ul>
+          <li>Academic performance and concentration.</li>
+          <li>Social development and friendships.</li>
+          <li>Confidence and independence.</li>
+          <li>Emotional regulation.</li>
+          <li>Sleep and physical health.</li>
+          <li>Participation in extracurricular activities and normal childhood experiences.</li>
+          <li>Family relationships and quality of life.</li>
+        </ul>
+        <p>For example, a child with severe social anxiety may begin avoiding friendships, school activities, and social situations. Over time, avoidance can become increasingly difficult to overcome.</p>
+        <p>A child with severe generalized anxiety may spend so much time worrying about potential problems that it interferes with learning, sleep, and daily functioning.</p>
+        <p><strong>Treating anxiety is not simply about reducing symptoms. It is about giving children the opportunity to experience childhood, develop confidence, build relationships, and learn healthy coping skills.</strong></p>
+        <h4>6. Does treating anxiety improve long-term outcomes?</h4>
+        <h5>Research Study: Child/Adolescent Anxiety Multimodal Extended Long-Term Study (CAMELS)</h5>
+        <p>This study followed children who had originally participated in a major clinical trial comparing sertraline, cognitive behavioral therapy (CBT), a combination of both treatments, and placebo.</p>
+        <p>Researchers evaluated participants approximately six years after their original treatment.</p>
+        <p><strong>What they found:</strong></p>
+        <ul>
+          <li>Approximately 46.5% of participants were in remission at long-term follow-up.</li>
+          <li>Children who initially responded to treatment were more likely to experience long-term remission.</li>
+          <li>Approximately 48% of initial treatment responders experienced a subsequent relapse.</li>
+          <li>Initial treatment assignment was not significantly associated with long-term remission status.</li>
+        </ul>
+        <p><strong>What this means for parents:</strong> Early treatment response is associated with better long-term outcomes, but anxiety can return. Continued monitoring, healthy coping skills, and ongoing treatment when needed remain important.</p>
+        <p>This study also reinforces why treating childhood anxiety early and effectively matters.</p>
+        <p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3969570/" target="_blank" rel="noopener">Read the CAMELS research study</a></p>
+        <h4>7. How long do children typically need antidepressant treatment?</h4>
+        <p>The American Academy of Child and Adolescent Psychiatry (AACAP) recognizes cognitive behavioral therapy (CBT) and SSRIs as evidence-based treatments for childhood and adolescent anxiety disorders.</p>
+        <h5>Research Guideline: AACAP Clinical Practice Guideline (2020)</h5>
+        <p>The guideline supports:</p>
+        <ul>
+          <li>CBT as an effective treatment for pediatric anxiety.</li>
+          <li>SSRIs as an effective medication option for children and adolescents.</li>
+          <li>Combining medication and CBT when clinically appropriate.</li>
+          <li>Monitoring medication effectiveness and potential adverse effects.</li>
+          <li>Periodically reassessing the need for continued medication.</li>
+        </ul>
+        <p>A commonly recommended approach is to continue an effective, well-tolerated medication for approximately 12 months after symptoms have resolved. Some children with severe, chronic, or recurrent anxiety may benefit from longer treatment.</p>
+        <p>Medication should never be stopped abruptly without guidance from the prescribing clinician.</p>
+        <p><a href="https://pubmed.ncbi.nlm.nih.gov/32439401/" target="_blank" rel="noopener">Read the AACAP Clinical Practice Guideline</a></p>
+        <h4>What Should Parents Take Away From This Research?</h4>
+        <p>Here are the most important points:</p>
+        <ul>
+          <li><strong>The research is generally reassuring.</strong> Human studies have not demonstrated that appropriately prescribed SSRIs cause permanent brain damage or impaired cognitive development.</li>
+          <li><strong>Long-term developmental studies are encouraging.</strong> Research following children taking sertraline for up to three years found no significant differences in several measures of cognitive functioning, growth, or pubertal development.</li>
+          <li><strong>Antidepressants are not without risks.</strong> Potential side effects include weight changes, sleep disturbances, behavioral activation, and increased suicidal thoughts in some patients. Monitoring is essential.</li>
+          <li><strong>Untreated anxiety also carries risks.</strong> Severe anxiety can interfere with a child’s academic, social, emotional, and developmental experiences.</li>
+          <li><strong>Medication does not have to be a lifelong commitment.</strong> Treatment duration is individualized, and the need for continued medication should be periodically reassessed.</li>
+          <li><strong>Medication and therapy can work together.</strong> For some children, reducing anxiety with medication allows them to participate more effectively in CBT and exposure-based treatments.</li>
+        </ul>
+        <h4>Our Approach at Hope Restored Psychiatry</h4>
+        <p>We understand that choosing medication for your child is a significant decision. We do not take that decision lightly.</p>
+        <p>Our approach is to:</p>
+        <ul>
+          <li>Carefully evaluate your child’s symptoms and individual needs.</li>
+          <li>Consider non-medication treatments and therapeutic interventions.</li>
+          <li>Discuss the potential benefits and risks of medication.</li>
+          <li>Use the lowest effective dose when clinically appropriate.</li>
+          <li>Monitor growth, weight, sleep, mood, and potential adverse effects.</li>
+          <li>Reassess treatment effectiveness and the ongoing need for medication.</li>
+        </ul>
+        <p><strong>Our goal is not simply to eliminate anxiety. It is to help your child develop the confidence, resilience, and emotional well-being needed to thrive.</strong></p>
+        <p>We believe parents should feel informed, comfortable, and involved in every treatment decision.</p>
+        <p class="post-note"><em>Research and recommendations reflect the published literature available at the time of preparation. Individual treatment decisions should be made in collaboration with your child’s prescribing clinician.</em></p>
+        <div class="post-disclaimer">This article is for general informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. Please consult a qualified healthcare provider about your individual situation.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- post5: Cannabis Use, Bipolar Disorder, and Your Mental Health -->
+  <div class="post-overlay" id="post5" role="dialog" aria-modal="true" aria-labelledby="post5-title">
+    <div class="post-modal">
+      <button class="post-modal-close" onclick="closePost('post5')" aria-label="Close post">✕</button>
+      <span class="post-tag">Bipolar Disorder</span>
+      <h2 id="post5-title">Cannabis Use, Bipolar Disorder, and Your Mental Health</h2>
+      <span class="post-date">November 12, 2026 · Dr. Crystal Bullard, MD</span>
+      <img class="post-hero-img" src="assets/cannabis-bipolar-psychosis-risk.jpg" alt="Illustration of a balance scale weighing a healthy brain against a brain surrounded by cannabis leaves" loading="lazy" />
+      <div class="post-body">
+        <p class="post-subtitle">Understanding the Research and Protecting Your Long-Term Mental Health</p>
+        <p>This article shares important information about the relationship between marijuana use, bipolar disorder, and the risk of developing psychosis. The goal is to help patients and families understand how marijuana can affect the brain and mental health, particularly for people living with bipolar disorder who are working toward consistent symptom control with medication.</p>
+        <h4>1. How Marijuana Affects Your Brain</h4>
+        <p>Marijuana contains THC (tetrahydrocannabinol), the primary psychoactive ingredient responsible for its mind-altering effects. THC affects several brain systems involved in mood regulation, emotional processing, motivation, memory, and perception.</p>
+        <p>Although some people use marijuana to relax or manage stress, THC can have unpredictable effects, particularly in individuals with underlying psychiatric conditions.</p>
+        <p>Marijuana can contribute to:</p>
+        <ul>
+          <li>Increased irritability, agitation, and emotional reactivity.</li>
+          <li>Increased impulsivity and difficulty controlling emotions.</li>
+          <li>Anxiety, panic, and suspiciousness.</li>
+          <li>Paranoia and unusual thought patterns.</li>
+          <li>Mood instability and worsening manic symptoms.</li>
+          <li>Hallucinations and other psychotic symptoms.</li>
+        </ul>
+        <p>Importantly, marijuana does not affect everyone the same way. However, individuals with bipolar disorder may be particularly vulnerable to its negative psychiatric effects.</p>
+        <h4>2. Why Marijuana Is Particularly Concerning for Individuals With Bipolar Disorder</h4>
+        <p>Research has consistently demonstrated an association between marijuana use and a more difficult course of bipolar disorder.</p>
+        <p>A major systematic review published in the <em>Canadian Journal of Psychiatry</em> examined research involving more than 2.4 million participants. Researchers found that individuals with bipolar disorder who used cannabis experienced associations with:</p>
+        <ul>
+          <li>More severe manic symptoms.</li>
+          <li>More severe depressive symptoms.</li>
+          <li>Increased psychotic symptoms.</li>
+          <li>Greater mood instability.</li>
+          <li>Increased suicide risk.</li>
+          <li>Decreased overall functioning.</li>
+        </ul>
+        <p>The researchers concluded that cannabis use is associated with a worsening course of bipolar disorder.</p>
+        <p>This is particularly important for anyone who is still working toward consistent mood stability with medication.</p>
+        <p>When bipolar disorder is not adequately controlled, introducing a substance that can further disrupt mood regulation may make treatment more difficult.</p>
+        <h4>3. Can Marijuana Increase Your Risk of Developing Psychosis?</h4>
+        <p>Yes. Research demonstrates an association between marijuana use and an increased risk of psychosis.</p>
+        <p>Psychosis is a condition in which a person experiences difficulty distinguishing what is real from what is not real.</p>
+        <p>Symptoms can include:</p>
+        <ul>
+          <li><strong>Paranoia:</strong> Feeling that people are watching you, following you, or trying to harm you without sufficient evidence.</li>
+          <li><strong>Hallucinations:</strong> Hearing voices or seeing things that other people do not hear or see.</li>
+          <li><strong>Delusions:</strong> Developing strong beliefs that are not supported by reality, even when presented with evidence.</li>
+          <li><strong>Disorganized thinking:</strong> Difficulty organizing thoughts or communicating clearly.</li>
+          <li><strong>Loss of insight:</strong> Having difficulty recognizing that your thoughts or perceptions may not reflect reality.</li>
+        </ul>
+        <p>Marijuana can trigger temporary psychotic symptoms during intoxication. In some vulnerable individuals, cannabis exposure may contribute to the development of more persistent psychotic illness.</p>
+        <p>Having bipolar disorder does not mean that you will develop psychosis. However, bipolar disorder itself can involve psychotic symptoms, particularly during severe manic or depressive episodes.</p>
+        <p>The combination of bipolar disorder and marijuana use is therefore concerning.</p>
+        <h4>4. Does the Amount of Marijuana You Use Matter?</h4>
+        <p>Yes. Research suggests that the frequency and potency of marijuana use significantly influence psychosis risk.</p>
+        <p>A systematic review and meta-analysis examining cannabis frequency found:</p>
+        <ul>
+          <li><strong>Weekly cannabis use:</strong> Associated with approximately 35% higher relative risk of developing psychosis.</li>
+          <li><strong>Daily cannabis use:</strong> Associated with approximately 76% higher relative risk of developing psychosis.</li>
+        </ul>
+        <p>These are population-level estimates, not predictions of your individual likelihood of developing psychosis.</p>
+        <p>Higher-potency marijuana products, including concentrates, wax, and dabs, can expose your brain to substantially greater amounts of THC.</p>
+        <p>The more frequently marijuana is used, and the higher its THC concentration, the greater the concern.</p>
+        <p>Age is another important consideration. In adolescence and early adulthood, the brain is still undergoing important developmental changes. Early adulthood is also a period when bipolar and psychotic-spectrum illnesses can emerge or become more apparent.</p>
+        <h4>5. Why This Matters During Treatment</h4>
+        <p>For people with bipolar disorder who are still working toward consistent mood stability with medication, marijuana use deserves special attention.</p>
+        <p>Many people with bipolar disorder have experienced episodes of anger and emotional dysregulation. When these symptoms improve with treatment, the goal is to prevent them from returning and to reduce the likelihood of more serious mood episodes.</p>
+        <p>Marijuana may interfere with this process by contributing to:</p>
+        <ul>
+          <li>Increased emotional reactivity and anger.</li>
+          <li>More frequent or severe mood episodes.</li>
+          <li>Increased impulsivity.</li>
+          <li>Poorer sleep and disrupted sleep patterns.</li>
+          <li>Increased vulnerability to paranoia and psychosis.</li>
+        </ul>
+        <p>It is possible for marijuana to worsen symptoms even when someone is taking prescribed psychiatric medication.</p>
+        <p>Mood-stabilizing and antipsychotic medications can help stabilize mood and treat certain psychiatric symptoms, but they do not eliminate the potential psychiatric risks associated with marijuana use.</p>
+        <p>The goal of treatment is to achieve the best possible symptom control without introducing additional factors that may work against it.</p>
+        <h4>6. Recommendations</h4>
+        <p>For individuals with bipolar disorder, especially those who have not yet achieved consistent mood stability, the available medical research supports a strong recommendation to stop using marijuana.</p>
+        <p>This is not because psychosis is inevitable. Rather, the goal is to reduce preventable risk factors that could make a psychiatric condition more difficult to manage.</p>
+        <p>Recommendations include:</p>
+        <ul>
+          <li><strong>Avoid marijuana completely.</strong> Abstinence is the safest approach for people with bipolar disorder.</li>
+          <li><strong>Avoid high-THC products.</strong> Concentrates, wax, dabs, and other high-potency products are particularly concerning.</li>
+          <li><strong>Take your prescribed medications consistently.</strong> Medication adherence is essential to achieving mood stability.</li>
+          <li><strong>Prioritize consistent sleep.</strong> Disrupted sleep can contribute to mood destabilization and manic episodes.</li>
+          <li><strong>Monitor for changes in thinking or behavior.</strong> Report new paranoia, suspiciousness, unusual beliefs, hallucinations, or significant changes in mood.</li>
+          <li><strong>Be honest with your psychiatrist about marijuana use.</strong> Understanding how frequently you use marijuana and what type of products you use helps your care team make better treatment decisions.</li>
+        </ul>
+        <p>If you experience hallucinations, significant paranoia, confusion, or other symptoms suggesting loss of contact with reality, seek immediate psychiatric evaluation. If you feel unsafe or experience severe symptoms, seek emergency care.</p>
+        <h4>7. The Bottom Line</h4>
+        <p>Bipolar disorder often begins in adolescence or early adulthood, and early, effective treatment offers the best opportunity to achieve long-term psychiatric stability.</p>
+        <p>Bipolar disorder is treatable, and many individuals with this diagnosis go on to lead healthy, productive lives. However, achieving that stability sometimes requires avoiding substances that can interfere with treatment.</p>
+        <p>The medical research demonstrates that marijuana use is associated with worsening bipolar symptoms and an increased risk of psychotic symptoms.</p>
+        <p>Bipolar disorder that is not yet fully controlled makes this an especially important concern.</p>
+        <p><strong>For people with bipolar disorder, avoiding marijuana altogether is one of the most important changes they can make to help protect their mental health, improve their response to treatment, and reduce the risk of future psychiatric complications.</strong></p>
+        <p>If you or a loved one has bipolar disorder and uses marijuana, talk with your psychiatrist. Working together can help bring symptoms under better control and provide the best possible chance of maintaining long-term stability.</p>
+        <h4>Medical Research and Resources</h4>
+        <p>The following publications provide additional information about the relationship between cannabis, bipolar disorder, and psychosis.</p>
+        <p><strong>1. Cannabis Use and Bipolar Disorder</strong></p>
+        <p>Tourjman SV, et al. (2023). Canadian Network for Mood and Anxiety Treatments (CANMAT) Task Force Report: A Systematic Review and Recommendations of Cannabis Use in Bipolar Disorder and Major Depressive Disorder. <em>Canadian Journal of Psychiatry.</em></p>
+        <p>This systematic review examined more than 2.4 million participants and found associations between cannabis use and worsening manic, depressive, and psychotic symptoms in individuals with bipolar disorder.</p>
+        <p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10192829/" target="_blank" rel="noopener">Read the article</a></p>
+        <p><strong>2. Cannabis Frequency and Risk of Psychosis</strong></p>
+        <p>Robinson T, et al. (2023). Risk-thresholds for the association between frequency of cannabis use and the development of psychosis: A systematic review and meta-analysis. <em>Psychological Medicine.</em></p>
+        <p>This study found a dose-response relationship between cannabis frequency and psychosis risk, with significantly increased risk among weekly and daily users.</p>
+        <p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10317818/" target="_blank" rel="noopener">Read the article</a></p>
+        <p><strong>3. Cannabis Potency and Mental Health</strong></p>
+        <p>Petrilli K, et al. (2022). Association of cannabis potency with mental ill health and addiction: A systematic review. <em>The Lancet Psychiatry.</em></p>
+        <p>This review examines the relationship between cannabis potency, THC exposure, and adverse mental health outcomes.</p>
+        <p><a href="https://pubmed.ncbi.nlm.nih.gov/35901795/" target="_blank" rel="noopener">Read the article</a></p>
+        <div class="post-disclaimer">This article is for general informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. Please consult a qualified healthcare provider about your individual situation.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- post6: Helping Your Child Adjust to Separation and Divorce -->
+  <div class="post-overlay" id="post6" role="dialog" aria-modal="true" aria-labelledby="post6-title">
+    <div class="post-modal">
+      <button class="post-modal-close" onclick="closePost('post6')" aria-label="Close post">✕</button>
+      <span class="post-tag">Parenting</span>
+      <h2 id="post6-title">Helping Your Child Adjust to Separation and Divorce</h2>
+      <span class="post-date">November 12, 2026 · Dr. Crystal Bullard, MD</span>
+      <img class="post-hero-img" src="assets/helping-child-through-divorce.jpg" alt="Illustration of two parents smiling with their child on a couch beneath a split house" loading="lazy" />
+      <div class="post-body">
+        <p class="post-subtitle">A Guide for Parents</p>
+        <p>Separation and divorce can bring many changes to a child’s life. Children may experience sadness, anxiety, anger, confusion, or worry about the future. Some children may not express their feelings directly and instead show their distress through irritability, behavioral changes, or difficulty at school.</p>
+        <p><strong>The good news is that parents can make a meaningful difference in how their children adjust.</strong> Research shows that reducing conflict, providing consistent support, and maintaining stable routines can help children navigate this transition.</p>
+        <h4>1. Reassure Your Child That the Divorce Is Not Their Fault</h4>
+        <p>Children sometimes believe that something they said or did caused their parents to separate. They may even think that behaving better could bring their parents back together.</p>
+        <p><strong>What you can do:</strong></p>
+        <ul>
+          <li>Repeatedly reassure your child that the divorce is not their fault.</li>
+          <li>Explain that the decision involves adult issues and is not their responsibility.</li>
+          <li>Make clear that they cannot fix the problems between their parents.</li>
+          <li>Remind them that both parents will continue to love them.</li>
+        </ul>
+        <p><strong>What you can say:</strong></p>
+        <p>“This is not your fault. Nothing you said or did caused this, and you do not have to fix anything. These are adult decisions, and we both love you very much.”</p>
+        <h4>2. Keep Conflict Away From Your Child</h4>
+        <p>Research consistently identifies ongoing parental conflict as an important risk factor for children’s emotional and behavioral difficulties following divorce.</p>
+        <p>You do not have to agree about everything or become friends. However, protecting your child from arguments and hostility is one of the most important things you can do.</p>
+        <p><strong>What you can do:</strong></p>
+        <ul>
+          <li>Avoid arguing, yelling, or criticizing each other in front of your child.</li>
+          <li>Keep disagreements about finances, custody, and other adult issues private.</li>
+          <li>Communicate respectfully during exchanges and school or extracurricular activities.</li>
+          <li>Consider counseling, mediation, or co-parenting support if communication becomes difficult.</li>
+        </ul>
+        <p><strong>Remember:</strong> Your child does not need to see you agree on everything. Your child needs to feel safe and protected from adult conflict.</p>
+        <h4>3. Never Make Your Child Choose Sides</h4>
+        <p>Children can feel torn between their parents when they believe that loving one parent will hurt the other.</p>
+        <p><strong>What you can do:</strong></p>
+        <ul>
+          <li>Never ask your child to carry messages between parents.</li>
+          <li>Do not question your child about the other parent’s personal life.</li>
+          <li>Avoid criticizing the other parent in your child’s presence.</li>
+          <li>Do not make your child responsible for comforting you about the divorce.</li>
+          <li>Encourage your child to maintain a loving relationship with both parents when it is safe and appropriate.</li>
+        </ul>
+        <p><strong>What you can say:</strong></p>
+        <p>“You never have to choose between Mom and Dad. You are allowed to love both of us, and you never have to feel guilty about spending time with either of us.”</p>
+        <h4>4. Allow Your Child to Express Difficult Emotions</h4>
+        <p>Children may express sadness, fear, or helplessness through anger, irritability, withdrawal, or behavioral problems. A child who is already struggling emotionally may have a harder time managing these feelings during a major family transition.</p>
+        <p><strong>What you can do:</strong></p>
+        <ul>
+          <li>Listen without immediately correcting, judging, or trying to fix your child’s feelings.</li>
+          <li>Allow your child to express sadness, anger, disappointment, and confusion.</li>
+          <li>Avoid telling your child to “just be happy,” “get over it,” or “be strong.”</li>
+          <li>Help your child identify feelings and find healthy ways to manage them.</li>
+          <li>Maintain appropriate boundaries while acknowledging their emotions.</li>
+        </ul>
+        <p><strong>What you can say:</strong></p>
+        <p>“I understand why you might feel angry or sad. This is a big change, and you didn’t ask for it. It’s okay to have those feelings. Let’s talk about what might help you feel better.”</p>
+        <p><strong>Important:</strong> Accepting your child’s feelings does not mean accepting harmful behavior. You can validate an emotion while maintaining appropriate expectations for behavior.</p>
+        <h4>5. Maintain Predictable Routines and Expectations</h4>
+        <p>Divorce often creates uncertainty about living arrangements, schedules, and daily life. Familiar routines can help children feel more secure during this transition.</p>
+        <p><strong>What you can do:</strong></p>
+        <ul>
+          <li>Maintain consistent bedtimes, mealtimes, and homework routines.</li>
+          <li>Preserve school attendance, friendships, and extracurricular activities when possible.</li>
+          <li>Communicate schedule changes in advance.</li>
+          <li>Establish reasonably consistent rules and expectations across both households.</li>
+          <li>Use a shared calendar or written schedule so your child knows what to expect.</li>
+        </ul>
+        <p>Children do not need every aspect of life to remain unchanged. They benefit from knowing what will happen next and being able to depend on the adults caring for them.</p>
+        <h4>6. Continue Being Emotionally Available</h4>
+        <p>Children need to know that their parents remain available to love, guide, and support them even though the family structure is changing.</p>
+        <p>When both parents are safe and capable caregivers, maintaining positive relationships with both is generally beneficial.</p>
+        <p><strong>What you can do:</strong></p>
+        <ul>
+          <li>Spend individual, meaningful time with your child.</li>
+          <li>Continue familiar activities and traditions when possible.</li>
+          <li>Show interest in your child’s friendships, hobbies, and daily experiences.</li>
+          <li>Follow through on promises and scheduled time together.</li>
+          <li>Make time to listen, even when your child is not ready to talk.</li>
+        </ul>
+        <p><strong>What you can say:</strong></p>
+        <p>“Even though some things in our family are changing, I am still your parent, and I am here for you. You can always talk to me about how you are feeling.”</p>
+        <h4>7. Be Patient With the Adjustment Process</h4>
+        <p>Children do not necessarily process divorce all at once. Their feelings and reactions may change as they experience new routines and begin to understand what the separation means for their lives.</p>
+        <p>A child may initially appear unaffected and become upset later. Another child may have strong feelings at first and gradually adjust.</p>
+        <p><strong>What you can do:</strong></p>
+        <ul>
+          <li>Check in regularly rather than assuming your child is doing fine.</li>
+          <li>Allow your child to ask questions more than once.</li>
+          <li>Be honest about changes without overwhelming your child with adult details.</li>
+          <li>Acknowledge that some things may be difficult while reassuring your child that you will help them through the changes.</li>
+          <li>Avoid pressuring your child to accept the divorce or feel better on a particular timeline.</li>
+        </ul>
+        <p>Try asking questions such as:</p>
+        <ul>
+          <li>“What has been the hardest part of this week?”</li>
+          <li>“Is there anything you’re worried about?”</li>
+          <li>“What would help you feel more comfortable with the changes?”</li>
+          <li>“Is there anything you want to ask me that you haven’t asked yet?”</li>
+        </ul>
+        <h4>8. Take Care of Your Own Emotional Well-Being</h4>
+        <p>Separation can be stressful for parents, too. Grief, anger, anxiety, and practical concerns can make it harder to remain patient and emotionally available.</p>
+        <p>Seeking support for yourself can help you be more available to your child.</p>
+        <p><strong>What you can do:</strong></p>
+        <ul>
+          <li>Seek support from trusted adults, friends, family members, or a therapist.</li>
+          <li>Avoid discussing adult relationship problems with your child.</li>
+          <li>Take a break from difficult conversations when emotions begin to escalate.</li>
+          <li>Consider co-parenting counseling or mediation if communication repeatedly becomes hostile.</li>
+        </ul>
+        <p>You do not have to hide every emotion from your child. It is okay for your child to know that you feel sad. The important thing is to reassure them that managing your feelings is your responsibility, not theirs.</p>
+        <h4>9. Watch for Changes in Your Child’s Emotional or Behavioral Health</h4>
+        <p>Some temporary changes in mood or behavior are understandable during a family transition. However, persistent or worsening symptoms may indicate that your child needs additional support.</p>
+        <p><strong>Pay attention to changes such as:</strong></p>
+        <ul>
+          <li>Increased anxiety, irritability, or anger.</li>
+          <li>Frequent emotional outbursts or difficulty calming down.</li>
+          <li>Changes in sleep or appetite.</li>
+          <li>Withdrawal from friends or family.</li>
+          <li>Declining school performance or difficulty concentrating.</li>
+          <li>Frequent physical complaints without an obvious explanation.</li>
+          <li>Persistent sadness, hopelessness, or loss of interest in usual activities.</li>
+        </ul>
+        <p>If these changes persist, intensify, or interfere with daily functioning, contact your child’s healthcare or mental health provider.</p>
+        <p>Counseling can provide a safe space for children to process their feelings, develop coping skills, and adjust to changes in their family.</p>
+        <h4>The Most Important Message Your Child Needs to Hear</h4>
+        <p>Children benefit when their parents consistently communicate the following messages through both words and actions:</p>
+        <p><strong>You are loved.</strong></p>
+        <p><strong>This is not your fault.</strong></p>
+        <p><strong>You do not have to choose between your parents.</strong></p>
+        <p><strong>You do not have to fix the problems between us.</strong></p>
+        <p><strong>Your feelings matter, and you can talk to us about them.</strong></p>
+        <p><strong>Even though some things are changing, we will continue to care for you.</strong></p>
+        <p>Divorce does not automatically determine a child’s long-term emotional well-being. Parents can make a meaningful difference by reducing conflict, maintaining routines, remaining emotionally available, and putting their child’s needs first.</p>
+        <h4>Recommended Resources for Parents</h4>
+        <p><strong>1. American Academy of Pediatrics (AAP): How to Support Children After Their Parents Separate or Divorce</strong></p>
+        <p>Practical, research-informed guidance on helping children adjust, reducing parental conflict, and maintaining supportive relationships.</p>
+        <p><a href="https://www.healthychildren.org/English/healthy-living/emotional-wellness/Building-Resilience/Pages/How-to-Support-Children-after-Parents-Separate-or-Divorce.aspx" target="_blank" rel="noopener">Visit the resource</a></p>
+        <p><strong>2. American Academy of Pediatrics (AAP): Divorce and Separation—How to Help Your Child Adjust</strong></p>
+        <p>Guidance on talking with children about divorce, addressing self-blame, managing difficult emotions, and maintaining routines.</p>
+        <p><a href="https://www.healthychildren.org/English/family-life/family-dynamics/types-of-families/Pages/adjusting-to-divorce.aspx" target="_blank" rel="noopener">Visit the resource</a></p>
+        <p><strong>3. Child Mind Institute: Supporting Kids During a Divorce</strong></p>
+        <p>Helpful information about recognizing children’s emotional reactions and supporting their mental health during family changes.</p>
+        <p><a href="https://childmind.org/article/supporting-kids-during-a-divorce/" target="_blank" rel="noopener">Visit the resource</a></p>
+        <p><strong>4. American Academy of Pediatrics (AAP): Divorce—Taking Care of Yourself</strong></p>
+        <p>Guidance for parents on managing their own stress and seeking support so they can remain emotionally available to their children.</p>
+        <p><a href="https://www.healthychildren.org/English/healthy-living/emotional-wellness/Building-Resilience/Pages/Divorce-Taking-Care-of-Yourself.aspx" target="_blank" rel="noopener">Visit the resource</a></p>
+        <p class="post-note"><em>This handout is intended for educational purposes and does not replace individualized guidance from your child’s healthcare or mental health provider.</em></p>
+        <div class="post-disclaimer">This article is for general informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. Please consult a qualified healthcare provider about your individual situation.</div>
+      </div>
+    </div>
+  </div>
 
   <!-- Post 1: Anxiety -->
   <div class="post-overlay" id="post1" role="dialog" aria-modal="true" aria-labelledby="post1-title">
